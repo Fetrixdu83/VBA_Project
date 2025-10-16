@@ -2,50 +2,62 @@ Attribute VB_Name = "DictSetUp"
 Option Explicit
 
 
-Public Sub ProductDict_SetUp()
+Public Function ProductDict_SetUp() As Object
 	Dim dict As Object
 	Set dict = CreateObject("Scripting.Dictionary")
+	dict.CompareMode = vbTextCompare
 
 	' Equivalents of Product ID
-	dict.Add "Product ID", "Product ID"
-	dict.Add "Product Name", "Product ID"
-	dict.Add "Product Code", "Product ID"
-	dict.Add "Prod. ID", "Product ID"
-	dict.Add "SKU", "Product ID"
-	dict.Add "Item Number", "Product ID"
+	dict("Product ID") = "Product ID"
+	dict("Product Name") = "Product ID"
+	dict("Product Code") = "Product ID"
+	dict("Prod. ID") = "Product ID"
+	dict("SKU") = "Product ID"
+	dict("Item Number") = "Product ID"
 
-	' Equivalents of Region
-	dict.Add "North America", "North America"
-	dict.Add "N.A.", "North America"
-	dict.Add "NORTH AMERICA", "North America"
-	dict.Add "north america", "North America"
-	dict.Add "Europe", "Europe"
-	dict.Add "EUROPE", "Europe"
-	dict.Add "europe", "Europe"
-	dict.Add "EU", "Europe"
-	dict.Add "Europe", "Europe"
-	dict.Add "ASIA", "Asia"
-	dict.Add "asia", "Asia"
-	
+	' Equivalent of Region
+	dict("Region") = "Region"
+	dict("Area") = "Region"
+	dict("Zone") = "Region"
+	dict("Reg.") = "Region"
+	dict("Reg") = "Region"
+
+
+	' Equivalents of Regions (In line)
+	dict("North America") = "North America"
+	dict("N.A.") = "North America"
+	dict("NORTH AMERICA") = "North America"
+	dict("north america") = "North America"
+	dict("Europe") = "Europe"
+	dict("EUROPE") = "Europe"
+	dict("europe") = "Europe"
+	dict("EU") = "Europe"
+	dict("ASIA") = "Asia"
+	dict("asia") = "Asia"
+    
 	' Equivalents of Quantity sold
-	dict.Add "Quantity", "Quantity"
-	dict.Add "Qty", "Quantity"
-	dict.Add "Qty.", "Quantity"
+	dict("Quantity") = "Quantity Sold"
+	dict("Qty") = "Quantity Sold"
+	dict("Qty.") = "Quantity Sold"
+	dict("Qty. Sold") = "Quantity Sold"
+	dict("Qty Sold") = "Quantity Sold"
+	dict("Quantity Sold") = "Quantity Sold"
 
 	' Equivalents of Sales Amount
-	dict.Add "Sales Amount", "Sales Amount"
-	dict.Add "Sales", "Sales Amount"
-	dict.Add "Amount", "Sales Amount"
-	
+	dict("Sales Amount") = "Sales"
+	dict("Sales") = "Sales"
+	dict("Amount") = "Sales"
+	dict("Revenue") = "Sales"
+    
 	' Equivalents of Transaction Date
-	dict.Add "Transaction Date", "Transaction Date"
-	dict.Add "Date", "Transaction Date"
-	dict.Add "Trans. Date", "Transaction Date"
+	dict("Transaction Date") = "Transaction Date"
+	dict("Date") = "Transaction Date"
+	dict("Trans. Date") = "Transaction Date"
+	dict("Transaction date") = "Transaction Date"
+	dict("transaction date") = "Transaction Date"
 
-
-
-	ListDictionarySorted dict, True
-End Sub
+	Set ProductDict_SetUp = dict
+End Function
 
 
 
